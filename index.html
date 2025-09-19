@@ -1,0 +1,154 @@
+<html>
+
+<head>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ejercicio 01 - ¿Es igual a 100?</title>
+
+
+  <style>
+    :root{
+      --blue:#0b6fb8;
+      --light:#f0f8ff;
+      --card-bg:#ffffff;
+      --muted:#9aa9bb;
+      --success:#e9f7ee;
+      --success-border:#2ecc71;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg,var(--light), #ffffff);
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      padding:28px;
+      min-height:100vh;
+      color:#223;
+    }
+
+    .card {
+      width:520px;
+      background:var(--card-bg);
+      border:1px solid #cfe6fb;
+      border-radius:8px;
+      box-shadow:0 6px 18px rgba(10,40,80,0.06);
+      padding:18px;
+    }
+
+    .card h2{
+      margin:0 0 10px 0;
+      text-align:center;
+      color:var(--blue);
+      font-size:1.15rem;
+    }
+
+    .instrucciones {
+      background:#f3fff6;
+      border:1px dashed #c9f2d7;
+      padding:12px;
+      margin:12px 0;
+      border-radius:6px;
+      color:#235;
+    }
+
+    .instrucciones h3{
+      margin:0 0 6px 0;
+      font-size:0.95rem;
+      color:#0a5f3f;
+    }
+
+
+    #mensaje {
+      background:#f6f9fb;
+      border:1px solid #d7e9f7;
+      padding:12px;
+      min-height:44px;
+      border-radius:6px;
+      margin:12px 0;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:600;
+      color:#2b6e9b;
+    }
+
+
+    .mensaje-correcto {
+      background:var(--success);
+      border-left:4px solid var(--success-border);
+      color:#155724;
+    }
+
+    .btn {
+      display:inline-block;
+      background:var(--blue);
+      color:white;
+      padding:10px 14px;
+      border-radius:6px;
+      border:none;
+      cursor:pointer;
+      font-size:0.95rem;
+      margin-top:6px;
+    }
+    .btn:hover{filter:brightness(.92)}
+    
+    footer{
+      margin-top:14px;
+      font-size:0.85rem;
+      color:var(--muted);
+      text-align:center;
+    }
+
+
+    @media (max-width:560px){
+      .card{width:calc(100% - 32px);}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" role="region" aria-label="Ejercicio comprobar valor">
+    <h2>🏷️ Ejercicio 01: ¿Es igual a 100?</h2>
+
+    <div class="instrucciones">
+      <h3>📋 Instrucciones</h3>
+      <p>En este ejercicio comprobaremos una variable llamada <strong>valor</strong>. Si el valor es exactamente <strong>100</strong>, 
+      se mostrará un mensaje de felicitación.</p>
+      <p>Nota: la variable está fijada a <code>100</code> para que el ejercicio muestre siempre el resultado correcto.</p>
+    </div>
+
+    <div id="mensaje" aria-live="polite">Cargando resultado...</div>
+
+    <button class="btn" type="button" onclick="verificarValor()">¡Ejecutar Ejercicio!</button>
+
+    <footer>Curso de JavaScript · Enseñanza Media | Ejercicio 01 - Condicional if</footer>
+  </div>
+
+  <script>
+
+
+    function verificarValor(){
+      const valor = 100; 
+      const nodo = document.getElementById('mensaje');
+
+
+      if (valor === 100) {
+        nodo.classList.add('mensaje-correcto');
+        nodo.innerHTML = '✅ <span>¡Correcto! El valor es exactamente igual a <strong>100</strong>.</span>';
+      } else {
+      
+     
+        nodo.classList.remove('mensaje-correcto');
+        nodo.innerHTML = '❌ <span>El valor NO es 100.</span>';
+      }
+    }
+
+  
+    document.addEventListener('DOMContentLoaded', verificarValor);
+  </script>
+</body>
+</html>
+
